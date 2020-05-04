@@ -1,0 +1,17 @@
+{
+  "name": "AnimatedLoad",
+  "displayName": "AnimatedLoad",
+  "expo": {
+    "name": "AnimatedLoad",
+    "slug": "AnimatedLoad",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

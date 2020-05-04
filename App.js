@@ -19,8 +19,8 @@ export default function App() {
 
   Animated.sequence([
     Animated.timing(heigth, {
-      toValue: windowHeight,
-      duration: 3000+20,
+      toValue: windowHeight + 30,
+      duration: 3000,
     }),
     Animated.timing(width, {
       toValue: windowWidth,
@@ -38,6 +38,7 @@ export default function App() {
           width: width,
           height: heigth,
         }]}></Animated.View>
+       
       </View>
      
     </View>

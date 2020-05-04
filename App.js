@@ -10,12 +10,6 @@ export default function App() {
 
   const [width, setWidth] = useState(new Animated.Value(windowWidth/4))
   const [heigth, setHeigth] = useState(new Animated.Value(windowHeight/12))
-  const [count, setCount] = useState(new Animated.Value(0))
-
-  Animated.timing(count, {
-    toValue: 100,
-    duration: 3000,
-  }).start()
 
   Animated.sequence([
     Animated.timing(heigth, {
@@ -32,7 +26,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.loadView}>
-        <Animated.Text style={styles.text}>{count}</Animated.Text>
         <Animated.View style={[styles.square,
         {
           width: width,

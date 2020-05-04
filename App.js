@@ -1,12 +1,43 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View,Animated } from 'react-native';
+import {useState} from 'react'
+import { StyleSheet, Text, View,Animated, Dimensions  } from 'react-native';
+const windowWidth = Dimensions.get('window').width
+const windowHeight = Dimensions.get('window').height
+
+
 
 export default function App() {
+
+  const [width, setWidth] = useState(new Animated.Value(windowWidth/4))
+  const [heigth, setHeigth] = useState(new Animated.Value(windowHeight/12))
+  const [count, setCount] = useState(new Animated.Value(0))
+
+  Animated.timing(count, {
+    toValue: 100,
+    duration: 3000,
+  }).start()
+
+  Animated.sequence([
+    Animated.timing(heigth, {
+      toValue: windowHeight,
+      duration: 3000+20,
+    }),
+    Animated.timing(width, {
+      toValue: windowWidth,
+      duration: 2000,
+    })
+  ]).start()
+ 
+
   return (
     <View style={styles.container}>
       <View style={styles.loadView}>
-        <Text style={styles.text}>0</Text>
-        <View style={styles.square}></View>
+        <Animated.Text style={styles.text}>{count}</Animated.Text>
+        <Animated.View style={[styles.square,
+        {
+          width: width,
+          height: heigth,
+        }]}></Animated.View>
       </View>
      
     </View>
@@ -29,8 +60,6 @@ const styles = StyleSheet.create({
   },
   square: {
     borderTopRightRadius: 10, 
-    width: 100,
-    height: 50,
     backgroundColor: "#58dd71"
   },
   text:{
